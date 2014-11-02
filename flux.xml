@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE flux[
+<!ELEMENT flux (depeche*) >
+<!ELEMENT depeche (titre,date,contenu) >
+<!ATTLIST depeche numero ID #REQUIRED type CDATA #FIXED 'Sport' >
+<!ELEMENT titre (#PCDATA | soustitre)* >
+<!ELEMENT soustitre (#PCDATA) >
+<!ELEMENT date (#PCDATA) >
+<!ELEMENT contenu (#PCDATA | ref)* >
+<!ATTLIST contenu ref CDATA #IMPLIED>
+<!ELEMENT ref EMPTY >
+<!ATTLIST ref depeche IDREF #REQUIRED >
+]>
+<flux>
+  <depeche numero="_1" type="Sport">
+    <titre>Nantes éliminé</titre>
+    <date>2008-09-24</date>
+    <contenu ref="oui">
+      Nantes a été éliminée en Coupe de la Ligue <ref depeche="_2"/> hier par l'équipe de Créteil ...
+    </contenu>
+  </depeche>
+  <depeche numero="_2" type="Sport">
+    <titre>Coupe de la Ligue
+    <soustitre>Résultats complets</soustitre></titre>
+    <date>2008-09-24</date>
+    <contenu>
+      <![CDATA[Créteil >< Nantes : 1-0 ...]]>
+    </contenu>
+  </depeche>
+</flux>
